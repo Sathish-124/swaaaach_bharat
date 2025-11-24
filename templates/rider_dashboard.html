@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rider Dashboard</title>
+</head>
+<body>
+
+    <h2>Welcome {{ session['rider_name'] }}</h2>
+
+    {% if job %}
+        <h3>Assigned Job:</h3>
+        <p>Booking ID: {{ job.id }}</p>
+        <p>Waste Type: {{ job.waste_type }}</p>
+        <p>Weight: {{ job.weight }} kg</p>
+        <p>Status: {{ job.status }}</p>
+
+        <a href="/rider/update_status/{{ job.id }}/on_the_way">On The Way</a><br>
+        <a href="/rider/update_status/{{ job.id }}/arrived">Arrived</a><br>
+        <a href="/rider/update_status/{{ job.id }}/collected">Collected</a><br>
+
+        <br>
+
+        <!-- Location Update Form -->
+        <form method="POST" action="/rider/update_location">
+            <label>Latitude:</label>
+            <input type="text" name="latitude" required><br>
+
+            <label>Longitude:</label>
+            <input type="text" name="longitude" required><br>
+
+            <button type="submit">Update Location</button>
+        </form>
+
+    {% else %}
+        <p>No job assigned yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="/rider/logout">Logout</a>
+
+</body>
+</html>

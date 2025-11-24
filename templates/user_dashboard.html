@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+
+<h2>Welcome {{ session['user_name'] }}!</h2>
+
+<ul>
+    <li><a href="/book">Book Waste Pickup</a></li>
+    <li><a href="/user/bookings">View My Bookings</a></li>
+</ul>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bookings</title>
+</head>
+<body>
+
+<h2>My Waste Pickup Bookings</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Waste Type</th>
+        <th>Weight</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Track</th>
+        <th>Payment</th>
+    </tr>
+
+    {% for b in bookings %}
+    <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.waste_type }}</td>
+        <td>{{ b.weight }} kg</td>
+        <td>₹ {{ b.price }}</td>
+        <td>{{ b.status }}</td>
+
+        <!-- Tracking -->
+        <td>
+            {% if b.rider_id %}
+                <a href="/track/{{ b.id }}">Track Rider</a>
+            {% else %}
+                Not assigned
+            {% endif %}
+        </td>
+
+        <!-- Payment -->
+        <td>
+            {% if b.price > 0 and b.status == "pending" %}
+                <a href="/pay/{{ b.id }}">Pay</a>
+            {% elif b.price == 0 and b.status == "assigned" %}
+                Free Pickup
+            {% else %}
+                Paid / N/A
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href="/user/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

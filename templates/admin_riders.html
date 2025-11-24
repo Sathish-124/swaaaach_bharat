@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Riders</title>
+</head>
+<body>
+
+<h2>Rider List</h2>
+
+<a href="/admin/add_rider">Add New Rider</a>
+<br><br>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Status</th>
+    </tr>
+
+    {% for r in riders %}
+    <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.name }}</td>
+        <td>{{ r.phone }}</td>
+        <td>{{ r.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/admin/dashboard">Back</a>
+
+</body>
+</html>

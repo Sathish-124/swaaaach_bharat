@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Rider (Admin)</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #map { height: 400px; width: 100%; }
+    </style>
+</head>
+<body>
+
+<h2>Admin: Track Rider Live</h2>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var map = L.map('map').setView([0, 0], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    var marker = L.marker([0, 0]).addTo(map);
+
+    function updateLocation() {
+        fetch('/get_rider_location/{{ rider_id }}')
+            .then(r => r.json())
+            .then(d => {
+                map.setView([d.lat, d.lng]);
+                marker.setLatLng([d.lat, d.lng]);
+            });
+    }
+
+    setInterval(updateLocation, 5000);
+</script>
+
+</body>
+</html>

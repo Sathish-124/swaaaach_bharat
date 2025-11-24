@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payments</title>
+</head>
+<body>
+
+<h2>All Payments</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Booking ID</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Status</th>
+    </tr>
+
+    {% for p in payments %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.user_name }}</td>
+        <td>{{ p.booking_id }}</td>
+        <td>₹ {{ p.amount }}</td>
+        <td>{{ p.payment_type }}</td>
+        <td>{{ p.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/admin/dashboard">Back</a>
+
+</body>
+</html>

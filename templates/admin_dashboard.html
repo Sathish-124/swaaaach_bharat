@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h2>Welcome Admin: {{ session['admin_email'] }}</h2>
+
+<ul>
+    <li><a href="/admin/manage_bookings">Manage Bookings</a></li>
+    <li><a href="/admin/riders">Manage Riders</a></li>
+    <li><a href="/admin/payments">View Payments</a></li>
+    <li><a href="/admin/users">View Users</a></li>
+    <li><a href="/admin/stats">Statistics</a></li>
+</ul>
+
+<a href="/admin/logout">Logout</a>
+
+</body>
+</html>

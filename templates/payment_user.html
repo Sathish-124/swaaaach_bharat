@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Payment</title>
+</head>
+<body>
+
+<h2>Payment for Booking #{{ booking.id }}</h2>
+
+<p>Waste Type: {{ booking.waste_type }}</p>
+<p>Weight: {{ booking.weight }} kg</p>
+<p>Price: ₹ {{ booking.price }}</p>
+
+<form method="POST">
+    <button type="submit">Pay Now</button>
+</form>
+
+</body>
+</html>

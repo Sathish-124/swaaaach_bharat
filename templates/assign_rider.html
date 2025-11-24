@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Rider</title>
+</head>
+<body>
+
+    <h2>Assign Rider to Booking #{{ booking.id }}</h2>
+
+    <p>Waste Type: {{ booking.waste_type }}</p>
+    <p>Weight: {{ booking.weight }} kg</p>
+
+    <form method="POST">
+        <label>Select Rider:</label>
+        <select name="rider_id" required>
+            {% for r in riders %}
+                <option value="{{ r.id }}">{{ r.name }} ({{ r.phone }})</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Assign Rider</button>
+    </form>
+
+    <br>
+    <a href="/admin/manage_bookings">Back</a>
+
+</body>
+</html>

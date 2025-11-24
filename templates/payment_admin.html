@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Payment</title>
+</head>
+<body>
+
+<h2>Pay User for Recyclable Waste</h2>
+
+<p>Booking ID: {{ booking.id }}</p>
+<p>Waste Type: {{ booking.waste_type }}</p>
+<p>Weight: {{ booking.weight }} kg</p>
+<p>Amount to Pay: ₹ {{ pay_amount }}</p>
+
+<form method="POST">
+    <button type="submit">Pay User</button>
+</form>
+
+</body>
+</html>

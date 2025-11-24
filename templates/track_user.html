@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Rider</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        #map { height: 400px; width: 100%; }
+    </style>
+</head>
+<body>
+
+<h2>Track Rider Live</h2>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var map = L.map('map').setView([0, 0], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    var marker = L.marker([0, 0]).addTo(map);
+
+    function updateLocation() {
+        fetch('/get_rider_location/{{ booking_id }}')
+            .then(response => response.json())
+            .then(data => {
+                map.setView([data.lat, data.lng]);
+                marker.setLatLng([data.lat, data.lng]);
+            });
+    }
+
+    setInterval(updateLocation, 5000);  // update every 5 seconds
+</script>
+
+</body>
+</html>
