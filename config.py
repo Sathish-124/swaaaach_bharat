@@ -1,14 +1,18 @@
 class Config:
     SECRET_KEY = "supersecretkey123"
 
-    MYSQL_HOST = "localhost"
-    MYSQL_USER = "root"
-    MYSQL_PASSWORD = "Sathish@29220"   # change this if your MySQL password is different
-    MYSQL_DB = "swaaaach_bharat"
+    # ---- Aiven MySQL (REMOTE DB) ----
+    MYSQL_HOST = "mysql-3b535963-cmr-5763.h.aivencloud.com"
+    MYSQL_PORT = 13191
+    MYSQL_USER = "avnadmin"
+    MYSQL_PASSWORD = "AVINS_8k5E0L30VBc6Hd29Nk∅"   # <- put your real Aiven password
+    MYSQL_DB = "defaultdb"
     MYSQL_CURSORCLASS = "DictCursor"
-MAIL_SERVER = 'smtp.gmail.com'
-MAIL_PORT = 587
-MAIL_USE_TLS = True
-MAIL_USERNAME = 'your_email@gmail.com'      # sender email
-MAIL_PASSWORD = 'your_app_password_here'    # Gmail app password
+    MYSQL_SSL_CA = "ca.pem"   # we already committed this file
 
+    # ---- EMAIL ----
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = 'your_email@gmail.com'
+    MAIL_PASSWORD = 'your_app_password_here'

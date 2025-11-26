@@ -1,6 +1,6 @@
 Flask
 flask-bcrypt
 flask-mail
-Flask-MySQLdb
+pymysql
 gunicorn
 cryptography

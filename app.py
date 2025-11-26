@@ -10,7 +10,7 @@ def create_app():
     app.config.from_object(Config)
 
     # initialize extensions
-    mysql.init_app(app)
+    
     mail.init_app(app)
     bcrypt.init_app(app)
 
